@@ -70,6 +70,25 @@
         min-height: 100vh;
       }
 
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 30;
+        width: 100%;
+        height: 4px;
+        pointer-events: none;
+      }
+
+      .scroll-progress span {
+        display: block;
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--coop-blue), var(--coop-green), var(--gold));
+        transform-origin: left center;
+        transition: width 120ms linear;
+      }
+
       .nav {
         position: sticky;
         top: 0;
@@ -120,7 +139,27 @@
       }
 
       .nav-links a {
+        position: relative;
         text-decoration: none;
+      }
+
+      .nav-links a::after {
+        position: absolute;
+        right: 0;
+        bottom: -8px;
+        left: 0;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--coop-green);
+        content: "";
+        opacity: 0;
+        transform: scaleX(0.4);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .nav-links a.is-active::after {
+        opacity: 1;
+        transform: scaleX(1);
       }
 
       .hero {
@@ -269,6 +308,14 @@
         gap: 14px;
         max-width: 1180px;
         margin: 0 auto;
+      }
+
+      .market-depth {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        max-width: 1180px;
+        margin: 14px auto 0;
       }
 
       .metric,
@@ -660,6 +707,17 @@
         line-height: 1.65;
       }
 
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 520ms ease, transform 520ms ease;
+      }
+
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       footer {
         padding: 22px clamp(18px, 4vw, 54px) 34px;
         color: var(--muted);
@@ -684,6 +742,7 @@
         }
 
         .metrics,
+        .market-depth,
         .provider-grid,
         .provider-stats,
         .source-grid,
@@ -711,6 +770,7 @@
         }
 
         .metrics,
+        .market-depth,
         .provider-grid,
         .provider-stats,
         .source-grid,
@@ -739,10 +799,23 @@
           font-size: 0.88rem;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal-on-scroll {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="page">
+      <div class="scroll-progress" aria-hidden="true"><span></span></div>
       <header class="nav">
         <a class="brand" href="#top" aria-label="Return to top">
           <img
@@ -773,10 +846,6 @@
               Co-operative Bank should re-enter, expand, or white-label asset finance and invoice
               discounting propositions for SME customers.
             </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#recommendation">Read recommendation</a>
-              <a class="button" href="#providers">Compare providers</a>
-            </div>
           </div>
           <figure class="hero-visual">
             <img
@@ -833,6 +902,32 @@
               <a class="metric-source" href="https://www.british-business-bank.co.uk/news-and-events/news/smaller-business-lending-markets-showing-signs-improvement-finds-latest-british-business-bank" target="_blank" rel="noopener noreferrer">British Business Bank source</a>
             </article>
           </div>
+          <div class="market-depth" aria-label="Invoice finance and asset-based lending market depth">
+            <article class="metric">
+              <p class="metric-label">IF/ABL users</p>
+              <strong>35k</strong>
+              <p>Businesses across the UK currently supported by UK Finance IF/ABL members.</p>
+              <a class="metric-source" href="https://www.ukfinance.org.uk/our-expertise/invoice-finance-asset-based-lending?page=1" target="_blank" rel="noopener noreferrer">UK Finance source</a>
+            </article>
+            <article class="metric">
+              <p class="metric-label">Provider base</p>
+              <strong>30+</strong>
+              <p>Member providers listed under the UK Finance IF/ABL Standards Framework.</p>
+              <a class="metric-source" href="https://www.ukfinance.org.uk/invoice-finance-and-asset-based-lending-standards-framework" target="_blank" rel="noopener noreferrer">Member list source</a>
+            </article>
+            <article class="metric">
+              <p class="metric-label">Client turnover</p>
+              <strong>£315bn+</strong>
+              <p>Combined annual turnover of businesses supported by IF/ABL products in 2024.</p>
+              <a class="metric-source" href="https://www.ukfinance.org.uk/our-expertise/commercial-finance/invoice-finance-and-asset-based-lending" target="_blank" rel="noopener noreferrer">UK Finance source</a>
+            </article>
+            <article class="metric">
+              <p class="metric-label">SME proof point</p>
+              <strong>8.5k</strong>
+              <p>Bibby customers across nine countries, showing independent SME-scale servicing.</p>
+              <a class="metric-source" href="https://www.ukfinance.org.uk/invoice-finance-and-asset-based-lending-standards-framework" target="_blank" rel="noopener noreferrer">UK Finance member source</a>
+            </article>
+          </div>
         </section>
 
         <section class="section band" id="strategy">
@@ -876,6 +971,37 @@
                 environmental value, and keep conduct standards visible. The point is not to chase volume
                 at any price; it is to help good businesses grow on terms the Bank can stand behind.
               </p>
+            </article>
+            <article class="strategy-card">
+              <p class="label">Co-op model fit</p>
+              <h3>Built for relationship-led business banking</h3>
+              <p>
+                The Bank already positions commercial banking around direct access to Relationship
+                Managers, tailored propositions, and sector understanding. Asset finance and invoice
+                discounting give those teams practical tools for working-capital conversations, rather
+                than leaving customers to self-serve or search the broker market.
+              </p>
+              <a class="metric-source" href="https://www.co-operativebank.co.uk/commercial/" target="_blank" rel="noopener noreferrer">Co-op commercial source</a>
+            </article>
+            <article class="strategy-card">
+              <p class="label">Proposition edge</p>
+              <h3>Guidance, ethics, and partner control</h3>
+              <p>
+                The differentiation is not just having products on a shelf. It is a guided journey that
+                checks eligibility early, explains trade-offs plainly, applies ethical exclusions, and
+                routes customers to approved partners under Co-op service standards.
+              </p>
+            </article>
+            <article class="strategy-card">
+              <p class="label">Commercial segments</p>
+              <h3>Clear routes by size and need</h3>
+              <p>
+                Relationship-managed customers with turnover of at least £2m, borrowing needs above
+                £250k, or larger corporate requirements can be triaged differently from simple business
+                current account customers. That makes a staged referral, co-brand, or white-label model
+                commercially manageable.
+              </p>
+              <a class="metric-source" href="https://www.co-operativebank.co.uk/commercial/commercial-banking-centres/" target="_blank" rel="noopener noreferrer">Relationship manager source</a>
             </article>
           </div>
         </section>
@@ -946,6 +1072,36 @@
                       <strong>WestWon</strong>
                       <p>Regional leasing presence including Birmingham; relevant for smaller-ticket equipment and local introducer activity.</p>
                       <a class="metric-source" href="https://westwon.co.uk/regional-offices/birmingham/" target="_blank" rel="noopener noreferrer">WestWon source</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="map-row">
+                  <div class="map-label">Incumbent banks</div>
+                  <div class="map-items">
+                    <div class="map-item">
+                      <strong>HSBC</strong>
+                      <p>Active invoice discounting for businesses with actual or projected turnover of £1m+, with up to 95% advance.</p>
+                      <a class="metric-source" href="https://www.business.hsbc.uk/en-gb/finance-and-borrowing/credit-and-lending/recovery-loan-scheme-invoice-finance-facility" target="_blank" rel="noopener noreferrer">HSBC source</a>
+                    </div>
+                    <div class="map-item">
+                      <strong>Lloyds</strong>
+                      <p>Invoice finance remains visible, with up to 90% advance and £100k+ turnover eligibility; SME factoring has reportedly narrowed.</p>
+                      <a class="metric-source" href="https://www.lloydsbank.com/business/invoice-finance.html" target="_blank" rel="noopener noreferrer">Lloyds source</a>
+                    </div>
+                    <div class="map-item">
+                      <strong>NatWest / RBS IF</strong>
+                      <p>Invoice discounting starts at £300k turnover; ABL is positioned for £6.5m+ turnover businesses.</p>
+                      <a class="metric-source" href="https://www.natwest.com/business/loans-and-finance/invoice-finance.html" target="_blank" rel="noopener noreferrer">NatWest source</a>
+                    </div>
+                    <div class="map-item">
+                      <strong>Barclays / Propel</strong>
+                      <p>Asset finance is routed through Propel, proving partner-led delivery is already an incumbent-market model.</p>
+                      <a class="metric-source" href="https://barclays-partnership.propelfinance.co.uk/" target="_blank" rel="noopener noreferrer">Barclays source</a>
+                    </div>
+                    <div class="map-item">
+                      <strong>Santander / Propel</strong>
+                      <p>Offers invoice finance and ABL directly, and added a Propel asset finance partnership in April 2026.</p>
+                      <a class="metric-source" href="https://www.santander.co.uk/about-santander/media-centre/press-releases/santander-partners-with-propel-finance-to-help" target="_blank" rel="noopener noreferrer">Santander source</a>
                     </div>
                   </div>
                 </div>
@@ -1293,6 +1449,11 @@
               <p>Independent invoice and asset finance limits, relationship model, and lending scale.</p>
               <a href="https://ultimatefinance.co.uk/" target="_blank" rel="noopener noreferrer">Open source</a>
             </article>
+            <article class="source">
+              <h3>Incumbent banks</h3>
+              <p>HSBC, Lloyds, NatWest, Barclays, and Santander public propositions and partnership signals.</p>
+              <a href="https://www.natwest.com/business/loans-and-finance/invoice-finance.html" target="_blank" rel="noopener noreferrer">Open source</a>
+            </article>
           </div>
         </section>
       </main>
@@ -1303,5 +1464,65 @@
         procurement or launch.
       </footer>
     </div>
+    <script>
+      (() => {
+        const progress = document.querySelector(".scroll-progress span");
+        const navLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+        const navTargets = navLinks
+          .map((link) => {
+            const target = document.querySelector(link.getAttribute("href"));
+            return target ? { link, target } : null;
+          })
+          .filter(Boolean);
+        const revealItems = Array.from(
+          document.querySelectorAll(
+            ".metric, .provider, .provider-stat, .strategy-card, .map-row, .panel, .recommendation, .source"
+          )
+        );
+
+        revealItems.forEach((item) => item.classList.add("reveal-on-scroll"));
+
+        const updateProgress = () => {
+          if (!progress) return;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const percentage = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+          progress.style.width = `${Math.min(100, Math.max(0, percentage))}%`;
+        };
+
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
+        );
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+
+        const navObserver = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (!visible) return;
+
+            navTargets.forEach(({ link, target }) => {
+              link.classList.toggle("is-active", target === visible.target);
+            });
+          },
+          { rootMargin: "-32% 0px -52% 0px", threshold: [0, 0.18, 0.4, 0.7] }
+        );
+
+        navTargets.forEach(({ target }) => navObserver.observe(target));
+        updateProgress();
+        window.addEventListener("scroll", updateProgress, { passive: true });
+        window.addEventListener("resize", updateProgress);
+      })();
+    </script>
   </body>
 </html>
