@@ -355,6 +355,232 @@
         text-decoration: none;
       }
 
+      .mechanics-intro {
+        max-width: 1180px;
+        margin: 0 auto 24px;
+      }
+
+      .mechanics-intro p {
+        max-width: 86ch;
+        margin-top: 16px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .mechanics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .mechanic-card {
+        display: grid;
+        gap: 14px;
+        min-height: 238px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        text-align: left;
+        background: var(--white);
+        box-shadow: 0 12px 34px rgba(16, 32, 51, 0.06);
+        cursor: pointer;
+        transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+      }
+
+      .mechanic-card:hover,
+      .mechanic-card:focus-visible {
+        border-color: rgba(0, 94, 184, 0.42);
+        box-shadow: 0 18px 44px rgba(16, 32, 51, 0.12);
+        transform: translateY(-3px);
+      }
+
+      .mechanic-card:focus-visible {
+        outline: 3px solid rgba(0, 94, 184, 0.24);
+        outline-offset: 3px;
+      }
+
+      .mechanic-card h3 {
+        font-size: 1.16rem;
+      }
+
+      .mechanic-card p {
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .mechanic-card .tag-row {
+        margin-top: auto;
+      }
+
+      .category-label {
+        justify-self: start;
+        padding: 7px 9px;
+        border-radius: 999px;
+        color: var(--ink);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: var(--aqua);
+      }
+
+      .mechanic-card.core .category-label {
+        color: var(--white);
+        background: var(--coop-blue);
+      }
+
+      .mechanic-card.back-book .category-label {
+        background: var(--gold);
+      }
+
+      .mechanic-card.emerging .category-label {
+        color: var(--white);
+        background: var(--coop-green);
+      }
+
+      .mechanic-card.strategy .category-label {
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .mechanic-arrow {
+        color: var(--coop-blue);
+        font-size: 0.84rem;
+        font-weight: 800;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      .mechanics-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: grid;
+        place-items: center;
+        padding: clamp(16px, 3vw, 40px);
+        background: rgba(16, 32, 51, 0.58);
+        backdrop-filter: blur(10px);
+      }
+
+      .mechanics-modal[hidden] {
+        display: none;
+      }
+
+      .modal-panel {
+        position: relative;
+        width: min(980px, 100%);
+        max-height: min(820px, calc(100vh - 40px));
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 26px 80px rgba(16, 32, 51, 0.28);
+      }
+
+      .modal-head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        align-items: start;
+        padding: clamp(22px, 4vw, 34px);
+        border-bottom: 1px solid var(--line);
+        background: #fbfdfb;
+      }
+
+      .modal-head h2 {
+        margin-top: 10px;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+      }
+
+      .modal-definition {
+        max-width: 74ch;
+        margin-top: 14px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .modal-close {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        font-size: 1.4rem;
+        line-height: 1;
+        background: var(--white);
+        cursor: pointer;
+      }
+
+      .modal-close:focus-visible {
+        outline: 3px solid rgba(0, 94, 184, 0.24);
+        outline-offset: 3px;
+      }
+
+      .modal-body {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        padding: clamp(22px, 4vw, 34px);
+      }
+
+      .modal-block {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfdfb;
+      }
+
+      .modal-block h3 {
+        margin-bottom: 12px;
+      }
+
+      .modal-block ul {
+        display: grid;
+        gap: 9px;
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .modal-block.wide {
+        grid-column: 1 / -1;
+      }
+
+      .modal-table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .modal-table th {
+        background: var(--ink);
+      }
+
+      .modal-table td,
+      .modal-table th {
+        padding: 13px;
+      }
+
+      .modal-note {
+        grid-column: 1 / -1;
+        padding: 18px;
+        border-left: 4px solid var(--coop-green);
+        border-radius: 8px;
+        color: var(--muted);
+        line-height: 1.6;
+        background: #eef5f1;
+      }
+
       .band {
         background: #eef5f1;
       }
@@ -743,11 +969,16 @@
 
         .metrics,
         .market-depth,
+        .mechanics-grid,
         .provider-grid,
         .provider-stats,
         .source-grid,
         .strategy-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .modal-body {
+          grid-template-columns: 1fr;
         }
 
         .value-panel .signal-list {
@@ -771,6 +1002,7 @@
 
         .metrics,
         .market-depth,
+        .mechanics-grid,
         .provider-grid,
         .provider-stats,
         .source-grid,
@@ -797,6 +1029,24 @@
         td {
           padding: 12px;
           font-size: 0.88rem;
+        }
+
+        .mechanic-card {
+          min-height: auto;
+        }
+
+        .modal-head {
+          grid-template-columns: 1fr;
+        }
+
+        .modal-close {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+        }
+
+        .modal-head h2 {
+          padding-right: 48px;
         }
       }
 
@@ -828,6 +1078,7 @@
           </span>
         </a>
         <nav class="nav-links" aria-label="Page sections">
+          <a href="#mechanics">Mechanics</a>
           <a href="#market">Market</a>
           <a href="#strategy">Strategy</a>
           <a href="#providers">Providers</a>
@@ -862,6 +1113,74 @@
               </p>
             </figcaption>
           </figure>
+        </section>
+
+        <section class="section band" id="mechanics">
+          <div class="mechanics-intro">
+            <p class="kicker">How the financing mechanics work</p>
+            <h2>What these products do in practice.</h2>
+            <p>
+              Before assessing market opportunity or partner strategy, the proposition needs a shared
+              understanding of what these products do in practice. Asset finance supports productive
+              investment by funding the assets a business needs to operate or grow. Invoice finance
+              supports working capital by advancing cash against invoices already earned but not yet paid.
+            </p>
+          </div>
+          <div class="mechanics-grid" aria-label="Financing mechanics explainer cards">
+            <button class="mechanic-card core" type="button" data-mechanics-modal="asset-finance">
+              <span class="category-label">Core products</span>
+              <h3>Asset Finance Mechanics</h3>
+              <p>
+                Funding tied to a productive asset: vehicles, machinery, equipment, yellow goods,
+                technology, and multi-million-pound purchases.
+              </p>
+              <span class="mechanic-arrow">Open explainer</span>
+            </button>
+            <button class="mechanic-card core" type="button" data-mechanics-modal="invoice-finance">
+              <span class="category-label">Core products</span>
+              <h3>Invoice Finance Mechanics</h3>
+              <p>
+                Advances cash against unpaid invoices to plug working-capital gaps while customers wait
+                to be paid.
+              </p>
+              <span class="mechanic-arrow">Open explainer</span>
+            </button>
+            <button class="mechanic-card back-book" type="button" data-mechanics-modal="back-book">
+              <span class="category-label">Back book sectors</span>
+              <h3>Back Book Sectors</h3>
+              <p>
+                Existing or familiar sectors where mechanics, risk appetite, and relationship value can
+                be better understood.
+              </p>
+              <span class="mechanic-arrow">Open explainer</span>
+            </button>
+            <button class="mechanic-card emerging" type="button" data-mechanics-modal="renewables">
+              <span class="category-label">Emerging focus</span>
+              <h3>Renewables as New Focus Area</h3>
+              <p>
+                An emerging strategic focus where asset finance, infrastructure finance, and ethical
+                positioning overlap.
+              </p>
+              <span class="mechanic-arrow">Open explainer</span>
+            </button>
+            <button class="mechanic-card core" type="button" data-mechanics-modal="matching">
+              <span class="category-label">Proposition design</span>
+              <h3>Product-to-Need Matching</h3>
+              <p>
+                Different products solve different business problems: capex, cash-flow timing,
+                refinancing, or growth.
+              </p>
+              <span class="mechanic-arrow">Open explainer</span>
+            </button>
+            <button class="mechanic-card strategy" type="button" data-mechanics-modal="implications">
+              <span class="category-label">Strategic implications</span>
+              <h3>Strategic Implications for the Bank</h3>
+              <p>
+                What the mechanics imply for proposition design, partner selection, risk, and ethical fit.
+              </p>
+              <span class="mechanic-arrow">Open explainer</span>
+            </button>
+          </div>
         </section>
 
         <section class="section" id="market">
@@ -1458,6 +1777,28 @@
         </section>
       </main>
 
+      <div class="mechanics-modal" id="mechanics-modal" hidden data-modal-close>
+        <article
+          class="modal-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mechanics-modal-title"
+          tabindex="-1"
+        >
+          <header class="modal-head">
+            <div>
+              <p class="category-label" id="mechanics-modal-category">Mechanics</p>
+              <h2 id="mechanics-modal-title">How it works</h2>
+              <p class="modal-definition" id="mechanics-modal-definition"></p>
+            </div>
+            <button class="modal-close" type="button" aria-label="Close modal" data-modal-close>
+              &times;
+            </button>
+          </header>
+          <div class="modal-body" id="mechanics-modal-body"></div>
+        </article>
+      </div>
+
       <footer>
         Prepared as an engagement artefact for senior stakeholder discussion. Commercial terms, partner
         appetite, regulatory status, and operational service levels require direct due diligence before
@@ -1466,6 +1807,262 @@
     </div>
     <script>
       (() => {
+        const mechanicsContent = {
+          "asset-finance": {
+            category: "Core products",
+            title: "Asset Finance Mechanics",
+            definition:
+              "Asset finance helps a business acquire, refinance, or release value from assets that are central to how it operates.",
+            how: [
+              "The customer avoids paying the full cost upfront and repays over an agreed term.",
+              "The financed asset is usually central to business operations and provides security or underwriting support.",
+              "The lender assesses asset value, useful life, resale value, borrower strength, and affordability.",
+              "Typical structures include hire purchase, leasing, refinance, or asset-backed lending."
+            ],
+            uses: [
+              "Plant and machinery, commercial vehicles, medical equipment, warehouse equipment, IT infrastructure, renewable energy assets, and yellow goods.",
+              "Yellow goods refers to heavy construction or industrial equipment such as excavators, loaders, diggers, cranes, and other plant machinery.",
+              "Facilities may range from smaller equipment purchases to multi-million-pound productive assets."
+            ],
+            consider: [
+              "Supplier controls, asset valuation, documentation, collections capability, and residual value understanding.",
+              "Whether appetite should prioritise productive, transition-aligned, or relationship-managed sectors.",
+              "Strategic implication: this links lending to useful, productive investment rather than general-purpose borrowing."
+            ]
+          },
+          "invoice-finance": {
+            category: "Core products",
+            title: "Invoice Finance Mechanics",
+            definition:
+              "Invoice finance releases working capital from invoices already earned but not yet paid by the end customer.",
+            how: [
+              "A lender may advance a percentage of an approved invoice, often around 80-90%, then charge interest or fees until the invoice is settled.",
+              "This is useful where the business has completed work, but payment terms create a cash-flow gap.",
+              "Invoice discounting lets the business keep control of the customer relationship and collections, often confidentially.",
+              "Factoring means the finance provider may own or manage invoice collection and chase payment directly.",
+              "Sale and forget is a practical shorthand for factoring or receivables purchase where the provider takes more responsibility for collecting the invoice."
+            ],
+            uses: [
+              "Recruitment firms, temporary staffing, construction suppliers, wholesalers, and service businesses with strong debtor books.",
+              "For recruitment and temp staffing, timesheets can evidence work completed before the end customer pays.",
+              "Businesses with credible customers and recurring invoice flows, but timing pressure between payroll, suppliers, and customer receipts."
+            ],
+            consider: [
+              "Debtor verification, fraud controls, receivables monitoring, collections processes, and strong servicing.",
+              "Whether the customer needs confidential discounting, factoring support, or a more structured receivables purchase model.",
+              "Strategic implication: this can help good businesses manage timing gaps without turning every need into an overdraft or unsecured loan."
+            ]
+          },
+          "back-book": {
+            category: "Back book sectors",
+            title: "Back Book Sectors",
+            definition:
+              "Established or familiar sectors where the Bank may already have exposure, relationship knowledge, relevant demand, or existing appetite.",
+            how: [
+              "Back book sectors are not presented as new markets; they are areas where mechanics, credit appetite, and relationship value can be understood more confidently.",
+              "The financing route depends on whether the need is asset-backed, property-backed, cash-flow supported, or receivables-led.",
+              "Underwriting should reflect sector dynamics rather than treating all borrowers as generic SMEs."
+            ],
+            uses: [],
+            table: {
+              headers: ["Sector", "Mechanics", "Key considerations"],
+              rows: [
+                ["Social housing / housing associations", "Property-backed lending, development finance, refinance, portfolio finance.", "Regulated income, housing demand, long-term rental flows, governance, and portfolio quality."],
+                ["Hospitals", "Equipment finance, property-backed lending, development or expansion finance.", "Operator strength, demand, regulation, lease or income quality."],
+                ["Care homes", "Acquisition, refurbishment, refinance, expansion, and property-backed lending.", "Occupancy, staffing, regulation, operator quality, and operational cash flow."],
+                ["Charities", "Property-backed or cash-flow supported lending.", "Governance, grant or donor income, reserves, mission alignment, and ethical fit."],
+                ["Student accommodation", "Development finance, investment refinance, acquisition finance.", "Occupancy, university demand, location, and rental resilience."],
+                ["Office / warehouse IPRE", "Income Producing Real Estate secured against commercial property and rental income.", "Tenant quality, lease length, occupancy, valuation, refinance risk, and logistics demand."],
+                ["Pharma", "Specialist equipment, manufacturing capacity, lab infrastructure, working capital, inventory, or receivables.", "Contract quality, regulation, R&D or commercialisation risk, customer concentration, and asset specificity."],
+                ["Large corporate", "Larger asset-backed facilities, receivables finance, revolving facilities, refinancing, syndicated or structured debt.", "Not a sector in the same way as care homes or housing; requires deeper underwriting, controls, and partner capability."]
+              ]
+            },
+            consider: [
+              "Relationship managers need confidence in sector mechanics, not just product labels.",
+              "Large corporate means larger, more complex businesses such as multi-site operators, logistics groups, manufacturers, infrastructure-heavy businesses, private-equity backed companies, and large trading businesses.",
+              "Strategic implication: established sectors can provide a controlled route into proposition design, but should not be overstated as current Bank product capability."
+            ]
+          },
+          renewables: {
+            category: "Emerging focus",
+            title: "Renewables as New Focus Area",
+            definition:
+              "Renewables are a new or emerging focus area where asset finance, infrastructure finance, and ethical positioning overlap.",
+            how: [
+              "Finance can support transition assets that reduce cost, improve resilience, or generate contracted energy value.",
+              "Mechanics may include equipment finance, project finance, lease structures, asset-backed lending, or financing against contracted revenues.",
+              "Renewables should be visually and strategically distinguished from ordinary back book sectors."
+            ],
+            uses: [
+              "Solar panels, battery storage, EV charging infrastructure, heat pumps, energy-efficiency equipment, and renewable infrastructure for businesses.",
+              "Customer cases where the funding need is tied to transition capex, energy savings, or resilience of operating infrastructure.",
+              "Opportunities where finance can connect directly to values-led positioning and productive investment."
+            ],
+            consider: [
+              "Asset performance, installation quality, energy savings, payback period, subsidies, power purchase agreements, regulation, and counterparty strength.",
+              "Whether specialist partners are needed for origination, asset assessment, monitoring, or servicing.",
+              "Strategic implication: renewables could be a distinctive priority area for ethical differentiation, but careful risk assessment is essential."
+            ]
+          },
+          matching: {
+            category: "Proposition design",
+            title: "Product-to-Need Matching",
+            definition:
+              "The right financing structure depends on the customer need: capex, working-capital timing, refinancing, property income, transition, or larger structured borrowing.",
+            how: [
+              "Start with the business problem, not the product catalogue.",
+              "Separate one-off capex from recurring working-capital timing needs.",
+              "Decide which risks the Bank wants to retain and which capabilities should sit with a partner."
+            ],
+            uses: [],
+            table: {
+              headers: ["Customer need", "Likely product route"],
+              rows: [
+                ["Buying equipment or vehicles", "Asset finance"],
+                ["Funding heavy plant / yellow goods", "Asset finance or refinance"],
+                ["Waiting for customers to pay invoices", "Invoice discounting or factoring"],
+                ["Recruitment/temp staffing payroll gap", "Invoice finance linked to timesheets and debtor quality"],
+                ["Property-backed income generation", "IPRE or structured property finance"],
+                ["Renewable transition capex", "Green asset finance / specialist renewable finance"],
+                ["Large complex borrower", "Structured corporate or asset-backed facility"]
+              ]
+            },
+            consider: [
+              "Eligibility, customer journey, servicing, partner operating model, and conduct standards should vary by need.",
+              "A simpler referral model may suit some needs; a co-brand or white-label journey may suit others.",
+              "The strategic question is not simply whether the Bank offers a product, but which customer need it wants to own, which risks it wants to retain, and which capabilities should sit with a partner."
+            ]
+          },
+          implications: {
+            category: "Strategic implications",
+            title: "Strategic Implications for the Bank",
+            definition:
+              "The mechanics shape proposition design, partner selection, operational control, risk appetite, and ethical fit.",
+            how: [
+              "Asset finance requires asset valuation, supplier controls, residual value understanding, documentation, and collections capability.",
+              "Invoice finance requires debtor verification, fraud controls, receivables monitoring, collections processes, and strong servicing.",
+              "Back-book sectors require sector-specific credit appetite and relationship manager confidence.",
+              "Renewables may need specialist partners because asset performance, installation quality, subsidies, and energy contracts create distinct risks."
+            ],
+            uses: [
+              "Referral-led pilots where the Bank wants speed and low operational lift.",
+              "Co-branded journeys where the Bank wants stronger customer ownership but partner-led servicing.",
+              "White-label propositions where the Bank owns the front-end experience and ethical filters while a specialist runs the complex engine."
+            ],
+            consider: [
+              "A partner-led model can let the Bank own the relationship, ethical filters, and customer guidance while outsourcing specialist origination, servicing, and platform complexity.",
+              "Product governance should be explicit about customer promises, exclusions, complaints, data sharing, vulnerability support, and conduct controls.",
+              "This connects to the staged recommendation: referral or white-label invoice finance first, then selective asset finance partnerships."
+            ]
+          }
+        };
+
+        const modal = document.getElementById("mechanics-modal");
+        const modalPanel = modal?.querySelector(".modal-panel");
+        const modalTitle = document.getElementById("mechanics-modal-title");
+        const modalCategory = document.getElementById("mechanics-modal-category");
+        const modalDefinition = document.getElementById("mechanics-modal-definition");
+        const modalBody = document.getElementById("mechanics-modal-body");
+        const modalClose = modal?.querySelector(".modal-close");
+        let lastFocusedElement = null;
+
+        const listBlock = (title, items) => {
+          if (!items?.length) return "";
+          return `
+            <section class="modal-block">
+              <h3>${title}</h3>
+              <ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>
+            </section>
+          `;
+        };
+
+        const tableBlock = (table) => {
+          if (!table) return "";
+          return `
+            <section class="modal-block wide">
+              <h3>Typical use cases</h3>
+              <table class="modal-table">
+                <thead>
+                  <tr>${table.headers.map((header) => `<th>${header}</th>`).join("")}</tr>
+                </thead>
+                <tbody>
+                  ${table.rows
+                    .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
+                    .join("")}
+                </tbody>
+              </table>
+            </section>
+          `;
+        };
+
+        const renderModal = (content) => {
+          modalCategory.textContent = content.category;
+          modalTitle.textContent = content.title;
+          modalDefinition.textContent = content.definition;
+          modalBody.innerHTML = [
+            listBlock("How it works", content.how),
+            content.table ? tableBlock(content.table) : listBlock("Typical use cases", content.uses),
+            listBlock("What the Bank needs to consider", content.consider),
+            `<p class="modal-note">${content.definition}</p>`
+          ].join("");
+        };
+
+        const focusableSelector =
+          "a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex='-1'])";
+
+        const openModal = (id) => {
+          const content = mechanicsContent[id];
+          if (!content || !modal || !modalPanel) return;
+          lastFocusedElement = document.activeElement;
+          renderModal(content);
+          modal.hidden = false;
+          document.body.classList.add("modal-open");
+          window.setTimeout(() => modalClose?.focus(), 0);
+        };
+
+        const closeModal = () => {
+          if (!modal || modal.hidden) return;
+          modal.hidden = true;
+          document.body.classList.remove("modal-open");
+          lastFocusedElement?.focus?.();
+        };
+
+        document.querySelectorAll("[data-mechanics-modal]").forEach((button) => {
+          button.addEventListener("click", () => openModal(button.dataset.mechanicsModal));
+        });
+
+        modal?.addEventListener("click", (event) => {
+          if (event.target === modal || event.target.closest("[data-modal-close]")) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (!modal || modal.hidden) return;
+          if (event.key === "Escape") {
+            closeModal();
+            return;
+          }
+
+          if (event.key !== "Tab") return;
+
+          const focusable = Array.from(modal.querySelectorAll(focusableSelector)).filter((element) =>
+            element.offsetParent !== null
+          );
+          if (!focusable.length) return;
+
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        });
+
         const progress = document.querySelector(".scroll-progress span");
         const navLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
         const navTargets = navLinks
@@ -1476,7 +2073,7 @@
           .filter(Boolean);
         const revealItems = Array.from(
           document.querySelectorAll(
-            ".metric, .provider, .provider-stat, .strategy-card, .map-row, .panel, .recommendation, .source"
+            ".metric, .mechanic-card, .provider, .provider-stat, .strategy-card, .map-row, .panel, .recommendation, .source"
           )
         );
 
