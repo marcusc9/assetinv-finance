@@ -483,7 +483,9 @@
         overflow: auto;
         border: 1px solid rgba(255, 255, 255, 0.28);
         border-radius: 8px;
-        background: var(--white);
+        background:
+          radial-gradient(circle at 12% 0%, rgba(215, 241, 236, 0.82), transparent 30%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), #f6faf8 64%, #eef5f1);
         box-shadow: 0 26px 80px rgba(16, 32, 51, 0.28);
       }
 
@@ -494,7 +496,8 @@
         align-items: start;
         padding: clamp(22px, 4vw, 34px);
         border-bottom: 1px solid var(--line);
-        background: #fbfdfb;
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(18px);
       }
 
       .modal-head h2 {
@@ -531,19 +534,41 @@
       .modal-body {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
+        gap: 14px;
         padding: clamp(22px, 4vw, 34px);
       }
 
       .modal-block {
-        padding: 18px;
-        border: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+        border: 1px solid rgba(16, 32, 51, 0.1);
         border-radius: 8px;
-        background: #fbfdfb;
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: 0 16px 44px rgba(16, 32, 51, 0.08);
+        backdrop-filter: blur(14px);
+      }
+
+      .modal-block::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--coop-blue), var(--coop-green));
+        content: "";
+      }
+
+      .modal-block:nth-child(2)::before {
+        background: linear-gradient(90deg, var(--gold), var(--coop-green));
+      }
+
+      .modal-block:nth-child(3)::before {
+        background: linear-gradient(90deg, var(--ink), var(--coop-blue));
       }
 
       .modal-block h3 {
-        margin-bottom: 12px;
+        margin-bottom: 14px;
       }
 
       .modal-block ul {
@@ -555,13 +580,25 @@
         line-height: 1.5;
       }
 
+      .modal-block li::marker {
+        color: var(--coop-green);
+      }
+
+      .modal-block a {
+        color: var(--coop-blue);
+        font-weight: 800;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+      }
+
       .modal-block.wide {
         grid-column: 1 / -1;
       }
 
       .modal-table {
         width: 100%;
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
         overflow: hidden;
         border-radius: 8px;
         background: var(--white);
@@ -574,6 +611,10 @@
       .modal-table td,
       .modal-table th {
         padding: 13px;
+      }
+
+      .modal-table tbody tr:nth-child(even) {
+        background: #f8faf7;
       }
 
       .band {
@@ -1153,20 +1194,11 @@
               <span class="mechanic-arrow">Open explainer</span>
             </button>
             <button class="mechanic-card back-book" type="button" data-mechanics-modal="back-book">
-              <span class="category-label">Back book sectors</span>
-              <h3>Back Book Sectors</h3>
+              <span class="category-label">Back book</span>
+              <h3>Familiar Clients</h3>
               <p>
-                Existing or familiar sectors where mechanics, risk appetite, and relationship value can
-                be better understood.
-              </p>
-              <span class="mechanic-arrow">Open explainer</span>
-            </button>
-            <button class="mechanic-card emerging" type="button" data-mechanics-modal="renewables">
-              <span class="category-label">Emerging focus</span>
-              <h3>Renewables as New Focus Area</h3>
-              <p>
-                An emerging strategic focus where asset finance, infrastructure finance, and ethical
-                positioning overlap.
+                Existing or familiar sectors where mechanics, appetite, and relationship value can be
+                assessed with more confidence.
               </p>
               <span class="mechanic-arrow">Open explainer</span>
             </button>
@@ -1180,10 +1212,19 @@
               <span class="mechanic-arrow">Open explainer</span>
             </button>
             <button class="mechanic-card strategy" type="button" data-mechanics-modal="implications">
-              <span class="category-label">Strategic implications</span>
+              <span class="category-label">Strategy / risk</span>
               <h3>Strategic Implications for the Bank</h3>
               <p>
                 What the mechanics imply for proposition design, partner selection, risk, and ethical fit.
+              </p>
+              <span class="mechanic-arrow">Open explainer</span>
+            </button>
+            <button class="mechanic-card emerging" type="button" data-mechanics-modal="renewables">
+              <span class="category-label">Emerging focus</span>
+              <h3>Renewables as New Focus Area</h3>
+              <p>
+                An emerging strategic focus where asset finance, infrastructure finance, and ethical
+                positioning overlap.
               </p>
               <span class="mechanic-arrow">Open explainer</span>
             </button>
@@ -1343,9 +1384,9 @@
                   <div>
                     <h3>Invoice discounting as the fastest trust extension</h3>
                     <p>
-                      SMEs already using business current accounts need cashflow support, not a lecture
-                      on capital structure. Confidential invoice discounting and selective factoring can
-                      meet that need with a partner balance sheet and specialist operations.
+                      Corporations already using business current accounts need timely cashflow support.
+                      Confidential invoice discounting and selective factoring can meet that need through a
+                      specialist funding partner with dedicated operations.
                     </p>
                   </div>
                 </li>
@@ -1365,9 +1406,9 @@
                   <div>
                     <h3>White-label where the Bank owns the relationship</h3>
                     <p>
-                      White-label or co-branded journeys preserve customer relevance while leaving
-                      underwriting workflow, verification, collections, and platform maintenance with a
-                      specialist.
+                      In a white-label model, the Bank presents the customer journey and relationship while
+                      the specialist runs underwriting, verification, collections, and platform operations
+                      behind the scenes.
                     </p>
                   </div>
                 </li>
@@ -1828,7 +1869,7 @@
             ],
             uses: [
               "Plant and machinery, commercial vehicles, medical equipment, warehouse equipment, IT infrastructure, renewable energy assets, and yellow goods.",
-              "Yellow goods refers to heavy construction or industrial equipment such as excavators, loaders, diggers, cranes, and other plant machinery.",
+              "Yellow goods: heavy construction or industrial equipment such as excavators, loaders, diggers, cranes, and other plant machinery.",
               "Facilities may range from smaller equipment purchases to multi-million-pound productive assets."
             ],
             consider: [
@@ -1861,14 +1902,14 @@
             ]
           },
           "back-book": {
-            category: "Back book sectors",
-            title: "Back Book Sectors",
+            category: "Back book",
+            title: "Familiar Clients",
             definition:
-              "Established or familiar sectors where the Bank may already have exposure, relationship knowledge, relevant demand, or existing appetite.",
+              "Established client areas where the Bank may already have exposure, relationship knowledge, relevant demand, or existing appetite.",
             how: [
-              "Back book sectors are not presented as new markets; they are areas where mechanics, credit appetite, and relationship value can be understood more confidently.",
+              "These are not presented as new markets; they are areas the Bank can understand more confidently.",
               "The financing route depends on whether the need is asset-backed, property-backed, cash-flow supported, or receivables-led.",
-              "Underwriting should reflect sector dynamics rather than treating all borrowers as generic SMEs."
+              "For Commercial, the question is how these products fit existing focus sectors, larger turnover clients, and relationship-managed coverage."
             ],
             uses: [],
             table: {
@@ -1898,12 +1939,13 @@
             how: [
               "Finance can support transition assets that reduce cost, improve resilience, or generate contracted energy value.",
               "Mechanics may include equipment finance, project finance, lease structures, asset-backed lending, or financing against contracted revenues.",
-              "Renewables should be visually and strategically distinguished from ordinary back book sectors."
+              "Renewables should be visually and strategically distinguished from familiar-client areas."
             ],
             uses: [
               "Solar panels, battery storage, EV charging infrastructure, heat pumps, energy-efficiency equipment, and renewable infrastructure for businesses.",
               "Customer cases where the funding need is tied to transition capex, energy savings, or resilience of operating infrastructure.",
-              "Opportunities where finance can connect directly to values-led positioning and productive investment."
+              "Opportunities where finance can connect directly to values-led positioning and productive investment.",
+              "Bank case study: Paragon Bank partnered with HDM Energies to provide up to £100m of funding for rooftop solar installations, using a Power Purchase Agreement model so businesses can access solar with no upfront cost and fixed-rate energy pricing over a 10-25 year term. <a href='https://www.paragonbankinggroup.co.uk/news/news-releases/paragon-partners-with-hdm-energies-to-unlock-100m-of-funding-to-accelerate-solar-rollout-and-drive-savings-for-smes' target='_blank' rel='noopener noreferrer'>Open case study</a>"
             ],
             consider: [
               "Asset performance, installation quality, energy savings, payback period, subsidies, power purchase agreements, regulation, and counterparty strength.",
@@ -1941,14 +1983,16 @@
             ]
           },
           implications: {
-            category: "Strategic implications",
+            category: "Strategy / risk",
             title: "Strategic Implications for the Bank",
             definition:
               "The mechanics shape proposition design, partner selection, operational control, risk appetite, and ethical fit.",
+            howTitle: "Risk mitigation",
             how: [
               "Asset finance requires asset valuation, supplier controls, residual value understanding, documentation, and collections capability.",
               "Invoice finance requires debtor verification, fraud controls, receivables monitoring, collections processes, and strong servicing.",
-              "Back-book sectors require sector-specific credit appetite and relationship manager confidence.",
+              "Key risk mechanics include asset valuation, residual value exposure, false or disputed invoices, debtor concentration, collection control, and partner conduct.",
+              "Familiar client sectors require clear appetite, relationship manager confidence, and evidence that the facility solves a real trading need.",
               "Renewables may need specialist partners because asset performance, installation quality, subsidies, and energy contracts create distinct risks."
             ],
             uses: [
@@ -1959,7 +2003,7 @@
             consider: [
               "A partner-led model can let the Bank own the relationship, ethical filters, and customer guidance while outsourcing specialist origination, servicing, and platform complexity.",
               "Product governance should be explicit about customer promises, exclusions, complaints, data sharing, vulnerability support, and conduct controls.",
-              "This connects to the staged recommendation: referral or white-label invoice finance first, then selective asset finance partnerships."
+              "This leads us to the staged recommendation: referral or white-label invoice finance first, then selective asset finance partnerships."
             ]
           }
         };
@@ -1987,7 +2031,7 @@
           if (!table) return "";
           return `
             <section class="modal-block wide">
-              <h3>Typical use cases</h3>
+              <h3>Typical cases</h3>
               <table class="modal-table">
                 <thead>
                   <tr>${table.headers.map((header) => `<th>${header}</th>`).join("")}</tr>
@@ -2007,8 +2051,8 @@
           modalTitle.textContent = content.title;
           modalDefinition.textContent = content.definition;
           modalBody.innerHTML = [
-            listBlock("How it works", content.how),
-            content.table ? tableBlock(content.table) : listBlock("Typical use cases", content.uses),
+            listBlock(content.howTitle || "How it works", content.how),
+            content.table ? tableBlock(content.table) : listBlock("Typical cases", content.uses),
             listBlock("What the Bank needs to consider", content.consider)
           ].join("");
         };
