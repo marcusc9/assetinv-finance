@@ -360,11 +360,16 @@
         margin: 0 auto 24px;
       }
 
+      .mechanics-intro h2 {
+        max-width: 14ch;
+      }
+
       .mechanics-intro p {
-        max-width: 86ch;
+        max-width: 68ch;
         margin-top: 16px;
         color: var(--muted);
-        line-height: 1.7;
+        font-size: clamp(1rem, 1.4vw, 1.12rem);
+        line-height: 1.62;
       }
 
       .mechanics-grid {
@@ -569,16 +574,6 @@
       .modal-table td,
       .modal-table th {
         padding: 13px;
-      }
-
-      .modal-note {
-        grid-column: 1 / -1;
-        padding: 18px;
-        border-left: 4px solid var(--coop-green);
-        border-radius: 8px;
-        color: var(--muted);
-        line-height: 1.6;
-        background: #eef5f1;
       }
 
       .band {
@@ -1033,6 +1028,20 @@
 
         .mechanic-card {
           min-height: auto;
+          padding: 18px;
+        }
+
+        .mechanics-intro {
+          margin-bottom: 18px;
+        }
+
+        .mechanics-intro h2 {
+          font-size: clamp(2.2rem, 12vw, 3rem);
+        }
+
+        .mechanics-intro p {
+          font-size: 1rem;
+          line-height: 1.55;
         }
 
         .modal-head {
@@ -1120,10 +1129,8 @@
             <p class="kicker">How the financing mechanics work</p>
             <h2>What these products do in practice.</h2>
             <p>
-              Before assessing market opportunity or partner strategy, the proposition needs a shared
-              understanding of what these products do in practice. Asset finance supports productive
-              investment by funding the assets a business needs to operate or grow. Invoice finance
-              supports working capital by advancing cash against invoices already earned but not yet paid.
+              First, align on the mechanics. Asset finance funds productive assets; invoice finance
+              advances cash against earned but unpaid invoices.
             </p>
           </div>
           <div class="mechanics-grid" aria-label="Financing mechanics explainer cards">
@@ -2002,8 +2009,7 @@
           modalBody.innerHTML = [
             listBlock("How it works", content.how),
             content.table ? tableBlock(content.table) : listBlock("Typical use cases", content.uses),
-            listBlock("What the Bank needs to consider", content.consider),
-            `<p class="modal-note">${content.definition}</p>`
+            listBlock("What the Bank needs to consider", content.consider)
           ].join("");
         };
 
