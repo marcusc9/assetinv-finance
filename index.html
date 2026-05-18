@@ -382,6 +382,7 @@
 
       .mechanic-card {
         display: grid;
+        grid-template-rows: auto auto 1fr auto;
         gap: 14px;
         min-height: 238px;
         padding: 22px;
@@ -421,13 +422,19 @@
       }
 
       .category-label {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        max-width: 100%;
         justify-self: start;
-        padding: 7px 9px;
+        padding: 7px 13px;
         border-radius: 999px;
         color: var(--ink);
-        font-size: 0.72rem;
+        font-size: 0.7rem;
         font-weight: 800;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
+        line-height: 1.05;
+        white-space: nowrap;
         text-transform: uppercase;
         background: var(--aqua);
       }
