@@ -312,7 +312,7 @@
 
       .market-depth {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 14px;
         max-width: 1180px;
         margin: 14px auto 0;
@@ -593,6 +593,60 @@
 
       .modal-block.wide {
         grid-column: 1 / -1;
+      }
+
+      .risk-strip {
+        grid-column: 1 / -1;
+      }
+
+      .risk-tile-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .risk-tile {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+        min-height: 190px;
+        padding: 16px;
+        border: 1px solid rgba(16, 32, 51, 0.1);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 251, 249, 0.82));
+      }
+
+      .risk-icon {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        color: var(--coop-blue);
+        background: rgba(213, 242, 236, 0.84);
+      }
+
+      .risk-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
+        stroke-width: 1.9;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .risk-tile strong {
+        color: var(--ink);
+        line-height: 1.2;
+      }
+
+      .risk-tile p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.45;
       }
 
       .modal-table {
@@ -963,6 +1017,10 @@
         box-shadow: 0 12px 34px rgba(16, 32, 51, 0.06);
       }
 
+      .strategy-card .risk-icon {
+        margin-bottom: 14px;
+      }
+
       .strategy-card p {
         margin-top: 10px;
         color: var(--muted);
@@ -1017,6 +1075,10 @@
           grid-template-columns: 1fr;
         }
 
+        .risk-tile-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .value-panel .signal-list {
           grid-template-columns: 1fr;
         }
@@ -1043,6 +1105,7 @@
         .provider-stats,
         .source-grid,
         .strategy-grid,
+        .risk-tile-grid,
         .map-items {
           grid-template-columns: 1fr;
         }
@@ -1145,7 +1208,7 @@
             <p class="lead">
               A market scan and recommendation piece to engage senior stakeholders on whether The
               Co-operative Bank should re-enter, expand, or white-label asset finance and invoice
-              discounting propositions for SME customers.
+              discounting propositions for Commercial customers.
             </p>
           </div>
           <figure class="hero-visual">
@@ -1159,7 +1222,7 @@
               <p>
                 The strongest route is a two-speed model: referral or white-label invoice finance in
                 year one, followed by selective asset finance partnerships in sectors that match the
-                Bank's ethical policy and SME relationship strategy.
+                Bank's ethical policy and Commercial relationship strategy.
               </p>
             </figcaption>
           </figure>
@@ -1169,10 +1232,7 @@
           <div class="mechanics-intro">
             <p class="kicker">How the financing mechanics work</p>
             <h2>What these products do in practice.</h2>
-            <p>
-              First, align on the mechanics. Asset finance funds productive assets; invoice finance
-              advances cash against earned but unpaid invoices.
-            </p>
+            <p>First, align on the mechanics.</p>
           </div>
           <div class="mechanics-grid" aria-label="Financing mechanics explainer cards">
             <button class="mechanic-card core" type="button" data-mechanics-modal="asset-finance">
@@ -1221,7 +1281,7 @@
             </button>
             <button class="mechanic-card emerging" type="button" data-mechanics-modal="renewables">
               <span class="category-label">Emerging focus</span>
-              <h3>Renewables as New Focus Area</h3>
+              <h3>Renewables</h3>
               <p>
                 An emerging strategic focus where asset finance, infrastructure finance, and ethical
                 positioning overlap.
@@ -1237,11 +1297,6 @@
               <p class="kicker">Market scan</p>
               <h2>Demand is resilient, but the route to market is changing.</h2>
             </div>
-            <p>
-              Asset finance remains one of the largest SME investment channels. Invoice finance and
-              asset-based lending are more fragmented, service-led, and exposed to a bank retreat that
-              creates room for trusted challengers and values-led brands.
-            </p>
           </div>
           <div class="metrics">
             <article class="metric">
@@ -1251,9 +1306,9 @@
               <a class="metric-source" href="https://fla.org.uk/news/asset-finance-new-business-grew-by-1-in-2025/" target="_blank" rel="noopener noreferrer">FLA source</a>
             </article>
             <article class="metric">
-              <p class="metric-label">SME asset lending</p>
+              <p class="metric-label">Business asset lending</p>
               <strong>£24bn+</strong>
-              <p>Record asset finance lending to SMEs in 2025, up 4% across the year.</p>
+              <p>FLA-reported lending to smaller businesses in 2025, up 4% across the year.</p>
               <a class="metric-source" href="https://fla.org.uk/news/asset-finance-new-business-grew-by-1-in-2025/" target="_blank" rel="noopener noreferrer">FLA source</a>
             </article>
             <article class="metric">
@@ -1263,9 +1318,9 @@
               <a class="metric-source" href="https://www.ukfinance.org.uk/our-expertise/commercial-finance/invoice-finance-and-asset-based-lending" target="_blank" rel="noopener noreferrer">UK Finance source</a>
             </article>
             <article class="metric">
-              <p class="metric-label">SME bank lending</p>
+              <p class="metric-label">Challenger bank share</p>
               <strong>60%</strong>
-              <p>Challenger and specialist banks' share of gross SME bank lending in 2025.</p>
+              <p>Challenger and specialist banks' share of gross smaller-business bank lending in 2025.</p>
               <a class="metric-source" href="https://www.british-business-bank.co.uk/news-and-events/news/smaller-business-lending-markets-showing-signs-improvement-finds-latest-british-business-bank" target="_blank" rel="noopener noreferrer">British Business Bank source</a>
             </article>
           </div>
@@ -1289,9 +1344,15 @@
               <a class="metric-source" href="https://www.ukfinance.org.uk/our-expertise/commercial-finance/invoice-finance-and-asset-based-lending" target="_blank" rel="noopener noreferrer">UK Finance source</a>
             </article>
             <article class="metric">
-              <p class="metric-label">SME proof point</p>
+              <p class="metric-label">Low-carbon economy</p>
+              <strong>£77bn</strong>
+              <p>ONS-estimated UK low carbon and renewable energy economy turnover in 2024.</p>
+              <a class="metric-source" href="https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/lowcarbonandrenewableenergyeconomyuk/2024" target="_blank" rel="noopener noreferrer">ONS source</a>
+            </article>
+            <article class="metric">
+              <p class="metric-label">Servicing proof point</p>
               <strong>8.5k</strong>
-              <p>Bibby customers across nine countries, showing independent SME-scale servicing.</p>
+              <p>Bibby customers across nine countries, showing independent multi-market servicing.</p>
               <a class="metric-source" href="https://www.ukfinance.org.uk/invoice-finance-and-asset-based-lending-standards-framework" target="_blank" rel="noopener noreferrer">UK Finance member source</a>
             </article>
           </div>
@@ -1303,72 +1364,41 @@
               <p class="kicker">Why it matters</p>
               <h2>Good businesses need finance that backs useful growth.</h2>
             </div>
-            <p>
-              Asset finance and invoice discounting sit close to the real trading needs of SMEs:
-              equipment, vehicles, stock, payroll, and customer payments. Used well, they help sound
-              businesses invest and manage cash without turning every funding conversation into a
-              general-purpose loan.
-            </p>
+            <p>Useful growth means finance tied to real assets, earned invoices, customer outcomes, and relationship-led guidance.</p>
           </div>
           <div class="strategy-grid">
             <article class="strategy-card">
+              <span class="risk-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v10H4z"/><path d="M8 8V6h8v2"/><path d="M8 18v2"/><path d="M16 18v2"/></svg>
+              </span>
               <p class="label">Asset finance</p>
-              <h3>Backs productive investment</h3>
-              <p>
-                The Bank can support customers buying assets that make the business stronger: machinery,
-                plant, vans, technology, energy efficiency upgrades, and other kit tied to trading
-                activity. That fits better with an ethical strategy than unsecured lending with no clear
-                link to purpose or outcomes.
-              </p>
+              <h3>Productive investment</h3>
+              <p>Machinery, plant, vehicles, technology, and transition assets tied to trading activity.</p>
             </article>
             <article class="strategy-card">
+              <span class="risk-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l3 3v15H7z"/><path d="M17 3v4h4"/><path d="M10 11h7"/><path d="M10 15h5"/></svg>
+              </span>
               <p class="label">Invoice discounting</p>
-              <h3>Protects cashflow without changing the business</h3>
-              <p>
-                Many good businesses do not fail because the order book is weak; they get squeezed
-                waiting to be paid. Confidential invoice discounting gives them working capital against
-                invoices they have already earned, while keeping customer relationships intact.
-              </p>
+              <h3>Cashflow timing</h3>
+              <p>Working capital against earned invoices while customer relationships stay intact.</p>
             </article>
             <article class="strategy-card">
+              <span class="risk-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-4.4 7-11V5l-7-3-7 3v5c0 6.6 7 11 7 11z"/><path d="M9 12l2 2 4-5"/></svg>
+              </span>
               <p class="label">Ethical fit</p>
-              <h3>Turns values into lending choices</h3>
-              <p>
-                A partner-led model lets the Bank set clear exclusions, prioritise sectors with social or
-                environmental value, and keep conduct standards visible. The point is not to chase volume
-                at any price; it is to help good businesses grow on terms the Bank can stand behind.
-              </p>
+              <h3>Values-led filters</h3>
+              <p>Sector choices, exclusions, conduct standards, and finance the Bank can stand behind.</p>
             </article>
             <article class="strategy-card">
+              <span class="risk-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"/><path d="M8 20v-7h8v7"/><path d="M10 9h4"/></svg>
+              </span>
               <p class="label">Co-op model fit</p>
-              <h3>Built for relationship-led business banking</h3>
-              <p>
-                The Bank already positions commercial banking around direct access to Relationship
-                Managers, tailored propositions, and sector understanding. Asset finance and invoice
-                discounting give those teams practical tools for working-capital conversations, rather
-                than leaving customers to self-serve or search the broker market.
-              </p>
+              <h3>RM-led guidance</h3>
+              <p>Relationship teams can identify the need early and route technical work to approved specialists.</p>
               <a class="metric-source" href="https://www.co-operativebank.co.uk/commercial/" target="_blank" rel="noopener noreferrer">Co-op commercial source</a>
-            </article>
-            <article class="strategy-card">
-              <p class="label">Proposition edge</p>
-              <h3>Guidance, ethics, and partner control</h3>
-              <p>
-                The differentiation is not just having products on a shelf. It is a guided journey that
-                checks eligibility early, explains trade-offs plainly, applies ethical exclusions, and
-                routes customers to approved partners under Co-op service standards.
-              </p>
-            </article>
-            <article class="strategy-card">
-              <p class="label">Commercial segments</p>
-              <h3>Clear routes by size and need</h3>
-              <p>
-                Relationship-managed customers with turnover of at least £2m, borrowing needs above
-                £250k, or larger corporate requirements can be triaged differently from simple business
-                current account customers. That makes a staged referral, co-brand, or white-label model
-                commercially manageable.
-              </p>
-              <a class="metric-source" href="https://www.co-operativebank.co.uk/commercial/commercial-banking-centres/" target="_blank" rel="noopener noreferrer">Relationship manager source</a>
             </article>
           </div>
         </section>
@@ -1377,7 +1407,7 @@
           <div class="value-layout">
             <article class="panel value-panel">
               <p class="kicker">Where value sits</p>
-              <h2>Three plays are worth exploring.</h2>
+              <h2>Four plays are worth exploring.</h2>
               <ul class="signal-list">
                 <li>
                   <span>1</span>
@@ -1412,6 +1442,18 @@
                     </p>
                   </div>
                 </li>
+                <li>
+                  <span>4</span>
+                  <div>
+                    <h3>Renewables as the maturity play</h3>
+                    <p>
+                      Once the operating model is proven, transition assets can become a distinctive
+                      focus: solar, battery storage, EV charging, heat pumps, and energy-efficiency
+                      equipment. Start through specialist partners while the Bank retains ethical filters,
+                      customer guidance, and sector appetite control.
+                    </p>
+                  </div>
+                </li>
               </ul>
             </article>
             <article class="panel">
@@ -1422,7 +1464,7 @@
                   <div class="map-items">
                     <div class="map-item">
                       <strong>Praetura</strong>
-                      <p>North West relationship-led asset, invoice, and ABL group; useful local benchmark for Manchester, Lancashire, and Northern SME appetite.</p>
+                      <p>North West relationship-led asset, invoice, and ABL group; useful local benchmark for Manchester, Lancashire, and Northern Commercial appetite.</p>
                       <a class="metric-source" href="https://www.praetura.co.uk/" target="_blank" rel="noopener noreferrer">Praetura source</a>
                     </div>
                     <div class="map-item">
@@ -1452,7 +1494,7 @@
                     </div>
                     <div class="map-item">
                       <strong>Lloyds</strong>
-                      <p>Invoice finance remains visible, with up to 90% advance and £100k+ turnover eligibility; SME factoring has reportedly narrowed.</p>
+                      <p>Invoice finance remains visible, with up to 90% advance and £100k+ turnover eligibility; smaller-business factoring has reportedly narrowed.</p>
                       <a class="metric-source" href="https://www.lloydsbank.com/business/invoice-finance.html" target="_blank" rel="noopener noreferrer">Lloyds source</a>
                     </div>
                     <div class="map-item">
@@ -1481,15 +1523,15 @@
                     </div>
                     <div class="map-item">
                       <strong>Aldermore</strong>
-                      <p>Invoice discounting, asset finance, and wholesale funding capability for established SMEs.</p>
+                      <p>Invoice discounting, asset finance, and wholesale funding capability for established businesses.</p>
                     </div>
                     <div class="map-item">
                       <strong>Metro Bank</strong>
-                      <p>Active invoice finance proposition with clear SME cashflow messaging.</p>
+                      <p>Active invoice finance proposition with clear business cashflow messaging.</p>
                     </div>
                     <div class="map-item">
                       <strong>Time Finance</strong>
-                      <p>SME asset, invoice, and loan finance with broker-led distribution strength.</p>
+                      <p>Asset, invoice, and loan finance with broker-led distribution strength.</p>
                     </div>
                   </div>
                 </div>
@@ -1548,7 +1590,7 @@
             </div>
             <p>
               The recommendation prioritises partners able to protect The Co-operative Bank's brand,
-              serve SMEs without heavy operational lift, and support a credible path from referral to
+              serve business customers without heavy operational lift, and support a credible path from referral to
               white label or co-brand.
             </p>
           </div>
@@ -1556,25 +1598,25 @@
             <article class="provider-stat">
               <p class="metric-label">Co-op access</p>
               <strong>100k</strong>
-              <p>Small business customers already using the Bank, making invoice-led support a natural extension.</p>
+              <p>Existing business customers already using the Bank, making invoice-led support a natural extension.</p>
               <a class="metric-source" href="https://www.co-operativebank.co.uk/about-us/press-release/2025/award-win-for-helping-small-businesses/" target="_blank" rel="noopener noreferrer">Co-op source</a>
             </article>
             <article class="provider-stat">
               <p class="metric-label">Bibby scale</p>
               <strong>£1bn+</strong>
-              <p>Funding capacity with a broad invoice finance and introducer proposition for SME cases.</p>
+              <p>Funding capacity with a broad invoice finance and introducer proposition for Commercial cases.</p>
               <a class="metric-source" href="https://www.bibbyfinancialservices.com/introducer/welcome-new-introducers" target="_blank" rel="noopener noreferrer">Bibby source</a>
             </article>
             <article class="provider-stat">
               <p class="metric-label">Kriya track record</p>
               <strong>£4bn+</strong>
-              <p>Invoice finance, SME loan, and embedded finance processed since launch, now backed by Allica.</p>
+              <p>Invoice finance, business loan, and embedded finance processed since launch, now backed by Allica.</p>
               <a class="metric-source" href="https://www.allica.bank/press-releases/allica-bank-acquires-fintech-kriya-in-a-move-to-deliver-1-billion-of-sme-working-capital-finance-by-2028" target="_blank" rel="noopener noreferrer">Allica source</a>
             </article>
             <article class="provider-stat">
               <p class="metric-label">Regional signal</p>
               <strong>£60m</strong>
-              <p>Praetura asset finance lending in Q3 2025, showing active demand across regional SME sectors.</p>
+              <p>Praetura asset finance lending in Q3 2025, showing active demand across regional business sectors.</p>
               <a class="metric-source" href="https://www.praeturaaf.com/praeturas-asset-finance-division-hits-lending-record/" target="_blank" rel="noopener noreferrer">Praetura source</a>
             </article>
           </div>
@@ -1586,7 +1628,7 @@
               </div>
               <h3>Bibby Financial Services</h3>
               <p>
-                Best first discussion for invoice finance and invoice discounting. Strong SME focus,
+                Best first discussion for invoice finance and invoice discounting. Strong business finance focus,
                 independent positioning, and funding capacity make it a practical partner for a values-led
                 bank wanting speed without overbuilding.
               </p>
@@ -1601,7 +1643,7 @@
               </ul>
               <div class="tag-row">
                 <span class="tag">Invoice finance</span>
-                <span class="tag">SME reach</span>
+                <span class="tag">Business reach</span>
                 <span class="tag">Fast pilot</span>
               </div>
             </article>
@@ -1613,8 +1655,7 @@
               <h3>Kriya / Allica Bank</h3>
               <p>
                 Strong option for embedded and digital invoice finance journeys. The Allica acquisition
-                gives Kriya bank ownership, funding credibility, and a clear ambition to scale SME working
-                capital finance.
+                gives Kriya bank ownership, funding credibility, and a clear ambition to scale business working capital finance.
               </p>
               <div class="provider-facts">
                 <span>Over £4bn processed by Kriya</span>
@@ -1622,8 +1663,8 @@
               </div>
               <ul>
                 <li>Best for digital application, fast drawdown, and marketplace-style journeys.</li>
-                <li>Useful white-label learning partner for online SME propositions.</li>
-                <li>Watch-outs: competitive overlap with Allica's established SME banking strategy.</li>
+                <li>Useful white-label learning partner for online business propositions.</li>
+                <li>Watch-outs: competitive overlap with Allica's established business banking strategy.</li>
               </ul>
               <div class="tag-row">
                 <span class="tag">Embedded finance</span>
@@ -1695,7 +1736,7 @@
                   </tr>
                   <tr>
                     <td><strong>Independent providers</strong></td>
-                    <td>Operational depth, broker networks, and appetite for SME cases that mainstream banks may not prioritise.</td>
+                    <td>Operational depth, broker networks, and appetite for Commercial cases that mainstream banks may not prioritise.</td>
                     <td>Best initial route for invoice finance pilots, with strong service-level and brand governance in the contract.</td>
                   </tr>
                   <tr>
@@ -1752,7 +1793,7 @@
                 <strong>0-90 days:</strong> partner RFI, target customer segments, conduct review, data-sharing model, and ethical exclusions.
               </li>
               <li>
-                <strong>3-6 months:</strong> referral pilot for invoice discounting and factoring with SME relationship managers.
+                <strong>3-6 months:</strong> referral pilot for invoice discounting and factoring with Commercial relationship managers.
               </li>
               <li>
                 <strong>6-12 months:</strong> co-branded or white-label journey if NPS, conversion, arrears, and complaint metrics pass gates.
@@ -1778,7 +1819,7 @@
           <div class="source-grid">
             <article class="source">
               <h3>FLA asset finance</h3>
-              <p>2025 new business, SME asset finance growth, and market commentary.</p>
+              <p>2025 new business, business asset finance growth, and market commentary.</p>
               <a href="https://fla.org.uk/news/asset-finance-new-business-grew-by-1-in-2025/" target="_blank" rel="noopener noreferrer">Open source</a>
             </article>
             <article class="source">
@@ -1788,8 +1829,13 @@
             </article>
             <article class="source">
               <h3>British Business Bank</h3>
-              <p>2025/26 SME lending trends and challenger bank share of gross SME lending.</p>
+              <p>2025/26 smaller-business lending trends and challenger bank share of gross smaller-business lending.</p>
               <a href="https://www.british-business-bank.co.uk/news-and-events/news/smaller-business-lending-markets-showing-signs-improvement-finds-latest-british-business-bank" target="_blank" rel="noopener noreferrer">Open source</a>
+            </article>
+            <article class="source">
+              <h3>ONS low-carbon economy</h3>
+              <p>2024 UK low carbon and renewable energy economy turnover and business activity.</p>
+              <a href="https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/lowcarbonandrenewableenergyeconomyuk/2024" target="_blank" rel="noopener noreferrer">Open source</a>
             </article>
             <article class="source">
               <h3>Co-operative Bank context</h3>
@@ -1798,7 +1844,7 @@
             </article>
             <article class="source">
               <h3>Bibby Financial Services</h3>
-              <p>Funding capacity and introducer proposition for UK SME finance partnerships.</p>
+              <p>Funding capacity and introducer proposition for UK business finance partnerships.</p>
               <a href="https://www.bibbyfinancialservices.com/introducer/welcome-new-introducers" target="_blank" rel="noopener noreferrer">Open source</a>
             </article>
             <article class="source">
@@ -1808,7 +1854,7 @@
             </article>
             <article class="source">
               <h3>Regional providers</h3>
-              <p>Praetura, Reward, Shire, and WestWon evidence for regional SME finance coverage.</p>
+              <p>Praetura, Reward, Shire, and WestWon evidence for regional business finance coverage.</p>
               <a href="https://www.praeturaaf.com/praeturas-asset-finance-division-hits-lending-record/" target="_blank" rel="noopener noreferrer">Open source</a>
             </article>
             <article class="source">
@@ -1887,8 +1933,7 @@
               "A lender may advance a percentage of an approved invoice, often around 80-90%, then charge interest or fees until the invoice is settled.",
               "This is useful where the business has completed work, but payment terms create a cash-flow gap.",
               "Invoice discounting lets the business keep control of the customer relationship and collections, often confidentially.",
-              "Factoring means the finance provider may own or manage invoice collection and chase payment directly.",
-              "Sale and forget is a practical shorthand for factoring or receivables purchase where the provider takes more responsibility for collecting the invoice."
+              "Factoring means the finance provider may own or manage invoice collection and chase payment directly."
             ],
             uses: [
               "Recruitment firms, temporary staffing, construction suppliers, wholesalers, and service businesses with strong debtor books.",
@@ -1907,7 +1952,7 @@
             definition:
               "Established client areas where the Bank may already have exposure, relationship knowledge, relevant demand, or existing appetite.",
             how: [
-              "These are not presented as new markets; they are areas the Bank can understand more confidently.",
+              "These are areas the Bank can understand more confidently.",
               "The financing route depends on whether the need is asset-backed, property-backed, cash-flow supported, or receivables-led.",
               "For Commercial, the question is how these products fit existing focus sectors, larger turnover clients, and relationship-managed coverage."
             ],
@@ -1926,14 +1971,15 @@
               ]
             },
             consider: [
-              "Relationship managers need confidence in sector mechanics, not just product labels.",
-              "Large corporate means larger, more complex businesses such as multi-site operators, logistics groups, manufacturers, infrastructure-heavy businesses, private-equity backed companies, and large trading businesses.",
-              "Strategic implication: established sectors can provide a controlled route into proposition design, but should not be overstated as current Bank product capability."
+              "RMs should identify the trigger: asset purchase, refinance, debtor-day pressure, contract growth, or a property-backed funding need.",
+              "Existing relationships, credit papers, management accounts, aged debtors, invoice samples, asset schedules, and security position can shape the first conversation.",
+              "Specialist support should come in before valuation, verification, collections, or product structuring decisions are made.",
+              "Over time, this helps the Bank build its own capability while using partners where the technical work is heavier."
             ]
           },
           renewables: {
             category: "Emerging focus",
-            title: "Renewables as New Focus Area",
+            title: "Renewables",
             definition:
               "Renewables are a new or emerging focus area where asset finance, infrastructure finance, and ethical positioning overlap.",
             how: [
@@ -1988,12 +2034,37 @@
             definition:
               "The mechanics shape proposition design, partner selection, operational control, risk appetite, and ethical fit.",
             howTitle: "Risk mitigation",
-            how: [
-              "Asset finance requires asset valuation, supplier controls, residual value understanding, documentation, and collections capability.",
-              "Invoice finance requires debtor verification, fraud controls, receivables monitoring, collections processes, and strong servicing.",
-              "Key risk mechanics include asset valuation, residual value exposure, false or disputed invoices, debtor concentration, collection control, and partner conduct.",
-              "Familiar client sectors require clear appetite, relationship manager confidence, and evidence that the facility solves a real trading need.",
-              "Renewables may need specialist partners because asset performance, installation quality, subsidies, and energy contracts create distinct risks."
+            riskTiles: [
+              {
+                icon: "asset",
+                title: "Asset value",
+                text: "Valuation, supplier controls, residual value, documentation, and collections capability."
+              },
+              {
+                icon: "invoice",
+                title: "Invoice quality",
+                text: "Debtor verification, fraud controls, receivables monitoring, and servicing discipline."
+              },
+              {
+                icon: "control",
+                title: "Control points",
+                text: "Disputed invoices, debtor concentration, collections control, and partner conduct."
+              },
+              {
+                icon: "sector",
+                title: "Sector appetite",
+                text: "Clear appetite, RM confidence, and evidence that the facility solves a real trading need, e.g. equipment for a care-home refurbishment or receivables funding for a contract win."
+              },
+              {
+                icon: "renewables",
+                title: "Renewables",
+                text: "Asset performance, installation quality, subsidies, and energy contract risk."
+              },
+              {
+                icon: "esg",
+                title: "ESG / ethical fit",
+                text: "Purpose, sector alignment, customer outcome, and whether finance supports useful growth rather than speculative leverage."
+              }
             ],
             uses: [
               "Referral-led pilots where the Bank wants speed and low operational lift.",
@@ -2027,6 +2098,40 @@
           `;
         };
 
+        const riskIcon = (type) => {
+          const icons = {
+            asset: "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M4 8h16v10H4z'/><path d='M8 8V6h8v2'/><path d='M8 18v2'/><path d='M16 18v2'/></svg>",
+            invoice: "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M7 3h10l3 3v15H7z'/><path d='M17 3v4h4'/><path d='M10 11h7'/><path d='M10 15h5'/></svg>",
+            control: "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M12 3l7 3v5c0 4.5-2.8 8.1-7 10-4.2-1.9-7-5.5-7-10V6z'/><path d='M9 12l2 2 4-5'/></svg>",
+            sector: "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M4 20V9l8-5 8 5v11'/><path d='M8 20v-7h8v7'/><path d='M10 9h4'/></svg>",
+            renewables: "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M5 14c7 0 10-5 14-9 0 8-4 14-11 14H5z'/><path d='M5 19c3-5 7-7 14-7'/></svg>",
+            esg: "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M12 21s7-4.4 7-11V5l-7-3-7 3v5c0 6.6 7 11 7 11z'/><path d='M9 12l2 2 4-5'/></svg>"
+          };
+          return icons[type] || icons.control;
+        };
+
+        const riskTileBlock = (title, items) => {
+          if (!items?.length) return "";
+          return `
+            <section class="modal-block risk-strip">
+              <h3>${title}</h3>
+              <div class="risk-tile-grid">
+                ${items
+                  .map(
+                    (item) => `
+                      <article class="risk-tile">
+                        <span class="risk-icon">${riskIcon(item.icon)}</span>
+                        <strong>${item.title}</strong>
+                        <p>${item.text}</p>
+                      </article>
+                    `
+                  )
+                  .join("")}
+              </div>
+            </section>
+          `;
+        };
+
         const tableBlock = (table) => {
           if (!table) return "";
           return `
@@ -2050,11 +2155,23 @@
           modalCategory.textContent = content.category;
           modalTitle.textContent = content.title;
           modalDefinition.textContent = content.definition;
-          modalBody.innerHTML = [
-            listBlock(content.howTitle || "How it works", content.how),
-            content.table ? tableBlock(content.table) : listBlock("Typical cases", content.uses),
-            listBlock("What the Bank needs to consider", content.consider)
-          ].join("");
+          modalBody.innerHTML = content.table
+            ? [
+                listBlock(content.howTitle || "How it works", content.how),
+                listBlock("What the Bank needs to consider", content.consider),
+                tableBlock(content.table)
+              ].join("")
+            : content.riskTiles
+            ? [
+                riskTileBlock(content.howTitle || "Risk mitigation", content.riskTiles),
+                listBlock("Typical cases", content.uses),
+                listBlock("What the Bank needs to consider", content.consider)
+              ].join("")
+            : [
+                listBlock(content.howTitle || "How it works", content.how),
+                listBlock("Typical cases", content.uses),
+                listBlock("What the Bank needs to consider", content.consider)
+              ].join("");
         };
 
         const focusableSelector =
