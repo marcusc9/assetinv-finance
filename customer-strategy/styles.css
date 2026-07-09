@@ -634,9 +634,30 @@ p {
 }
 
 .journey-step h3 {
-  margin: 14px 0 12px;
+  margin: 14px 0 8px;
   color: var(--teal);
   font-size: 1.02rem;
+}
+
+.step-owner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 12px;
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.step-owner span {
+  padding: 4px 7px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: var(--teal);
+  font-size: 0.68rem;
+  text-transform: uppercase;
 }
 
 .journey-step dl {
