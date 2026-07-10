@@ -982,7 +982,7 @@ p {
 .decision-head,
 .decision-row {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr 1.2fr 0.82fr;
+  grid-template-columns: 1.05fr 0.95fr 1.08fr 0.94fr;
 }
 
 .decision-head {
